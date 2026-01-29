@@ -1,0 +1,299 @@
+/* --- VARIÁVEIS DA IDENTIDADE VISUAL --- */
+:root {
+    /* Paleta de Cores */
+    --bg-base: #0B0D18;      /* Azul noturno */
+    --bg-card: #15192b;      /* Tom levemente mais claro */
+    --primary: #A64BF4;      /* Roxo vibrante */
+    --accent: #29FFB2;       /* Verde Neon */
+    --text-main: #F0F2F5;    /* Texto Claro */
+    --text-muted: #9ca3af;   /* Cinza médio */
+    
+    /* Configurações */
+    --radius: 12px;
+    --font-title: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* RESET E BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    background-color: var(--bg-base); 
+    color: var(--text-main); 
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais bonita no Mac/iOS */
+}
+
+.container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 60px 20px; 
+    min-height: 100vh;
+}
+
+/* UTILITÁRIOS DE TEXTO */
+.text-primary { color: var(--primary); }
+.text-accent { color: var(--accent); }
+
+/* HEADER */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-bottom: 60px; 
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+h1 { 
+    font-family: var(--font-title);
+    font-weight: 800; 
+    font-size: 3rem; 
+    line-height: 1.1; 
+    letter-spacing: -1px;
+    color: var(--text-main);
+}
+
+.subtitle { 
+    color: var(--primary); 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-size: 0.85rem; 
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* CAIXA DE VALIDADE */
+.validade-box {
+    text-align: right;
+    background: rgba(166, 75, 244, 0.08);
+    padding: 12px 25px;
+    border-radius: var(--radius);
+    border: 1px solid var(--primary);
+}
+
+.validade-label { font-size: 0.75rem; color: var(--text-muted); display: block; text-transform: uppercase; }
+.validade-date { color: var(--accent); font-weight: 700; font-family: var(--font-title); font-size: 1.1rem; }
+
+/* SEÇÕES GERAIS */
+section { margin-bottom: 60px; }
+
+h2 { 
+    font-family: var(--font-title);
+    font-weight: 800;
+    font-size: 1.8rem; 
+    margin-bottom: 30px; 
+    display: flex; 
+    align-items: center; 
+    color: var(--text-main);
+}
+
+/* Detalhe Neon ao lado do título */
+h2::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 32px;
+    background: var(--accent);
+    margin-right: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 12px var(--accent); /* Efeito de brilho */
+}
+
+p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1rem; max-width: 70ch; }
+
+/* GRID DE CARDS */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+
+.card { 
+    background: var(--bg-card); 
+    padding: 35px; 
+    border-radius: var(--radius); 
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+.card h3 { 
+    font-family: var(--font-title);
+    font-weight: 700;
+    color: var(--primary); 
+    margin-bottom: 15px; 
+    font-size: 1.4rem; 
+}
+
+/* TIMELINE (CRONOGRAMA) */
+.timeline { border-left: 2px solid rgba(41, 255, 178, 0.3); padding-left: 25px; margin-left: 5px; }
+
+.timeline-item { margin-bottom: 25px; position: relative; }
+
+/* Bolinha da timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: var(--bg-base);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+}
+
+.timeline-title { color: var(--text-main); display: block; font-size: 1.1rem; margin-bottom: 4px; font-weight: 600; }
+.timeline-date { color: var(--text-muted); font-size: 0.9rem; font-family: var(--font-body); }
+
+/* CAIXA DE PREÇO */
+/* --- DESTAQUE DA SEÇÃO DE INVESTIMENTO --- */
+/* Baseado na sua imagem de referência */
+
+.price-box {
+    /* Fundo: Um gradiente radial sutil para dar profundidade (foco no centro) */
+    background: radial-gradient(circle at center, rgba(166, 75, 244, 0.15) 0%, rgba(11, 13, 24, 0.8) 100%);
+    
+    /* Borda: Roxo vibrante da sua paleta */
+    border: 2px solid var(--primary);
+    
+    /* Sombra: O efeito "Neon" que faz a caixa brilhar no fundo escuro */
+    box-shadow: 0 0 50px rgba(166, 75, 244, 0.25), inset 0 0 20px rgba(166, 75, 244, 0.1);
+    
+    padding: 60px 40px;
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    margin-top: 40px;
+    
+    /* Animação suave ao passar o mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito Hover: A caixa "flutua" e brilha mais quando o cliente passa o mouse */
+.price-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 60px rgba(166, 75, 244, 0.4);
+}
+
+/* O texto "VALOR TOTAL DO PROJETO" */
+.price-label {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 4px; /* Espaçamento chique entre letras */
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7); /* Branco levemente transparente */
+    margin-bottom: 20px;
+    display: block;
+    font-weight: 600;
+}
+
+/* O Valor "R$ 1.500,00" */
+.price-value {
+    font-family: var(--font-title);
+    font-size: 4.5rem; /* Tamanho gigante */
+    font-weight: 800; /* Extra Bold */
+    color: #FFFFFF;
+    margin: 10px 0 20px 0;
+    line-height: 1;
+    
+    /* Brilho específico no texto do preço */
+    text-shadow: 0 0 30px rgba(166, 75, 244, 0.6);
+}
+
+/* Observação pequena abaixo */
+.price-obs {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: rgba(41, 255, 178, 0.1); /* Fundo verde bem suave */
+    border: 1px solid rgba(41, 255, 178, 0.3);
+    border-radius: 20px;
+    color: var(--accent); /* Verde Neon */
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* BOTÕES */
+.actions { margin-top: 60px; text-align: center; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+.btn { 
+    padding: 16px 32px; 
+    font-size: 1rem; 
+    font-weight: 700; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    text-decoration: none; 
+    transition: 0.3s;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.btn-primary { 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    box-shadow: 0 4px 15px rgba(166, 75, 244, 0.4);
+}
+.btn-primary:hover { 
+    background: #902bf5; 
+    box-shadow: 0 6px 25px rgba(166, 75, 244, 0.6); 
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-main);
+    border: 2px solid rgba(255,255,255,0.2);
+}
+.btn-secondary:hover { 
+    border-color: var(--accent); 
+    color: var(--accent); 
+}
+
+/* RODAPÉ */
+footer { 
+    margin-top: 80px; 
+    text-align: center; 
+    font-size: 0.85rem; 
+    color: rgba(255,255,255,0.3); 
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+}
+
+/* --- MODO DE IMPRESSÃO (CTRL + P) --- */
+/* Isso garante que ao imprimir, a folha saia branca e economize tinta */
+@media print {
+    body { background-color: white !important; color: black !important; -webkit-print-color-adjust: exact; }
+    .container { width: 100%; max-width: 100%; padding: 0; margin: 0; }
+    
+    /* Remove sombras e brilhos para impressão nítida */
+    h1, h2, h3, h2::before, .price-value { 
+        color: black !important; 
+        box-shadow: none !important; 
+        text-shadow: none !important; 
+    }
+    
+    h2::before { background: black !important; }
+    p, span, strong { color: #333 !important; }
+    
+    .card { border: 1px solid #ccc !important; background: white !important; color: black !important; box-shadow: none !important; }
+    .card h3 { color: black !important; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    
+    .price-box { background: white !important; border: 2px solid black !important; color: black !important; }
+    .validade-box { border: 1px solid black !important; background: white !important; color: black !important; }
+    .timeline { border-left: 2px solid #ccc !important; }
+    .timeline-item::before { border-color: black !important; background: white !important; }
+    
+    /* Esconde botões e rodapé na impressão */
+    .actions, footer, .no-print { display: none !important; }
+    a { text-decoration: none; color: black; }
+}
