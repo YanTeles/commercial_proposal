@@ -209,34 +209,66 @@ p {
     font-family: var(--font-body);
 }
 
-/* CAIXA DE PREÇO */
-/* --- DESTAQUE DA SEÇÃO DE INVESTIMENTO --- */
-/* Baseado na sua imagem de referência */
-
+/* --- CAIXA DE INVESTIMENTO (AJUSTADA) --- */
 .price-box {
     background: linear-gradient(145deg, #15192b 0%, #0b0d18 100%);
     border: 2px solid var(--primary);
-    box-shadow: 0 0 40px rgba(166, 75, 244, 0.2);
-    padding: 60px 40px;
+    box-shadow: 0 0 40px rgba(166, 75, 244, 0.25), 
+                0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 50px 40px;
     border-radius: var(--radius);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho sutil no fundo */
+.price-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(166, 75, 244, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.price-box > * {
+    position: relative;
+    z-index: 1;
 }
 
 .price-label {
-    font-size: 0.8rem;
-    letter-spacing: 4px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .price-value {
     font-family: var(--font-title);
-    font-size: 4.5rem; 
+    font-size: 3.2rem; 
     font-weight: 800; 
     color: #fff;
-    margin: 15px 0;
-    text-shadow: 0 0 20px rgba(166, 75, 244, 0.5);
+    margin: 20px 0;
+    text-shadow: 0 0 30px rgba(166, 75, 244, 0.6),
+                 0 0 60px rgba(166, 75, 244, 0.3);
+    line-height: 1.2;
+    letter-spacing: -1px;
 }
+
+.price-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 20px;
+    max-width: 100%;
+    line-height: 1.5;
+}
+
 /* BOTÕES */
 .actions {
     margin-top: 60px;
@@ -289,14 +321,51 @@ p {
 footer {
     margin-top: 80px;
     text-align: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.95rem;
+    color: #9ca3af;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 30px;
 }
 
+footer p {
+    color: #9ca3af;
+    margin: 0;
+}
+
+footer strong {
+    color: #F0F2F5;
+    font-weight: 600;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .price-value {
+        font-size: 2.5rem;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    .validade-box {
+        text-align: left;
+        width: 100%;
+    }
+
+    .price-box {
+        padding: 40px 25px;
+    }
+}
+
 /* --- MODO DE IMPRESSÃO (CTRL + P) --- */
-/* Isso garante que ao imprimir, a folha saia branca e economize tinta */
 @media print {
     body {
         background-color: white !important;
@@ -349,6 +418,10 @@ footer {
         background: white !important;
         border: 2px solid black !important;
         color: black !important;
+    }
+
+    .price-box::before {
+        display: none !important;
     }
 
     .validade-box {
